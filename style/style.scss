@@ -1,0 +1,80 @@
+@import "_resetCode";
+
+@mixin font($size, $weight, $color){
+    font-size:$size;
+    font-weight:$weight;
+    color:$color;
+}
+
+$primary_color:#635AD9;
+$secondary_color: #7338AC;
+$helping_color:#219BE4;
+$bg_color:#212226;
+
+
+
+.menu{
+    background-color:$bg_color;
+    padding:15px 0px;
+}
+.container{
+    width:90%;
+    display:flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin:auto;
+    .logo{
+        h1{
+            color:$secondary_color;
+            cursor: pointer;
+        }
+    }
+    .item{
+        ul{
+            li{
+                list-style-type: none;
+                display:inline-block;
+                padding:8px 15px;
+                a{
+                    @include font(18px, 500, $helping_color);
+                    text-decoration: none;
+                }
+            }
+            li:hover{
+                background-color: $secondary_color;
+                border-radius:8px;
+                a{
+                    color:white;
+                }
+            }
+        }
+    }
+}
+.menu_icon{
+    color:white;
+    font-size:20px;
+}
+
+@media only screen and(max-width:640px){
+    ul{
+        position:fixed;
+        width:30%;
+        top:72px;
+        left:0px;
+        height:400px;
+        background-color:$bg_color;
+        transition: ease-in .2s;
+    }
+    .toggle{
+        left:-300px;
+    }
+    li{
+        display:block !important;
+    }
+
+}
+@media only screen and(min-width:641px){
+    .menu_icon{
+        display:none;
+    }
+}
